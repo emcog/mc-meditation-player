@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<title>MBOE Meditations</title>
+	<link rel="stylesheet" href="https://use.typekit.net/edm6svv.css">
+	<link rel="stylesheet" href="assets/styles/main.css">
+	<!-- Include amplitude.js -->
+	<script type="text/javascript" src="/assets/js/amplitude.min.js"></script>
+
+</head>
+<body>
+
+ <div id="popup">
+	<nav class="grid-14-col">
+		<img class="is-first" src="/assets/vectors/mindfulness-connected-logo.svg">
+		<a class="is-last" target="_blank" href ="https://www.mindfulnessconnected.com">Main site</a>
+	</nav>
+	<div id="cover" class="grid-14-col">
+		<img src="/assets/vectors/MBOE-logo.svg">
+		<span>Mindfulness-Based Organisational Education</span>
+		<h1>Meditations</h1>
+	</div>
+
+
+<!-- JAM Audio -->
+	<div id="audio" class="grid-14-col">
+		<div id="audio-player" class="grid-14-col">
+			
+			<div class="meta-container">
+				<span data-amplitude-song-info="name" class="song-name"></span>
+  				<span amplitude-song-info="artist" amplitude-main-song-info="true"></span>
+			</div>
+
+			<progress class="amplitude-song-played-progress" amplitude-main-song-played-progress="true" id="song-played-progress"></progress>
+
+			<div class="time-container">
+  				<span class="current-time">
+    			<span class="amplitude-current-minutes" amplitude-main-current-minutes="true"></span>:<span class="amplitude-current-seconds" amplitude-main-current-seconds="true"></span>
+  				</span>
+  				<span>/</span>
+  				<span class="duration">
+    			<span class="amplitude-duration-minutes" amplitude-main-duration-minutes="true"></span>:<span class="amplitude-duration-seconds" amplitude-main-duration-seconds="true"></span>
+  				</span>
+			</div>
+
+			<div class="control-container">
+				<div class="amplitude-prev"></div>
+ 				<div class="amplitude-play-pause" amplitude-main-play-pause="true" id="play-pause"></div>
+  				<div class="amplitude-next"></div>
+			</div>
+		</div>
+
+
+		<table id="audio-tracks">
+			<thead>
+				<tr><th>Meditation number</th><th>Meditation name</th><th>Meditation lenghth</th></tr>
+			</thead>
+			<tbody>
+				<tr><td class="audio-track__number">01</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="0"></td><td class="audio-track__length">02:13</td></tr>
+				<tr><td class="audio-track__number">02</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="1"></td><td class="audio-track__length">10:21</td></tr>
+				<tr><td class="audio-track__number">03</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="2"></td><td class="audio-track__length">08:05</td></tr>
+				<tr><td class="audio-track__number">04</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="3"></td><td class="audio-track__length">11:12</td></tr>
+				<tr><td class="audio-track__number">05</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="4"></td><td class="audio-track__length">09:57</td></tr>
+				<tr><td class="audio-track__number">06</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="5"></td><td class="audio-track__length">15:27</td></tr>
+			</tbody>
+			<tfoot></tfoot>
+		</table>
+	</div>
+	<div id="download" class="grid-14-col">
+		<a class="btn" href="/assets/meditations/MBOE-meditations.zip" download="MBOE Meditations">Download MBOE Meditations<img src="/assets/vectors/icon-download.svg"></href>
+	</div>
+
+
+	<!--------- TODO 
+		
+		[] apply to put music on spotify/itunes/apple music etc
+		[x] put js into module / main.js
+		[] for each loop to add/remove js_is-playing
+		[] click on track & auto play & play/pause button shows correct appearance
+		[] download individual tracks
+		[] apple & spotify buttons
+
+	-->
+
+
+<script type="text/javascript" src="/assets/js/main.js"></script>
+
+</body>
+</html>
