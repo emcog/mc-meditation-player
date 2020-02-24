@@ -37,7 +37,7 @@ const paths = {
 		      src: "./src/assets/**/*.scss",
           compileTo: "./src/assets/styles/",
           minifyFrom: "./src/assets/styles/main.css",
-          dest: "./dist/assets/styles"
+          dest: "./dist/assets"
 	     },
         scripts: {
           src: "./src/assets/**/*.js",
