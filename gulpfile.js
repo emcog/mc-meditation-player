@@ -1,5 +1,8 @@
-// gulp build to make deployment ready code
 // gulp watch for buidling/testing/debugging
+// run gulp watch before gulp build – gulp watch compiless scss to css, gulp build minifies css and pipes to dist folder
+// gulp build to make deployment ready code
+
+
 
 
 // -------> soures
@@ -32,13 +35,14 @@ const paths = {
         },
         styles: {
 		      src: "./src/assets/**/*.scss",
-          compiled: "./src/assets",
-		      dest: "./dist/css"
+          compileTo: "./src/assets/styles/",
+          minifyFrom: "./src/assets/styles/main.css",
+          dest: "./dist/assets/styles"
 	     },
         scripts: {
           src: "./src/assets/**/*.js",
           main: "./src/assets/scripts/main.js", 
-          dest: "./dist/scripts"
+          dest: "./dist/assets/scripts"
        }
 };
 
@@ -69,9 +73,18 @@ function javascriptBuild() {
 }
 
 
+// function cssBuild() {
+//   return gulp
+//         .src(paths.styles.minifyFrom)
+//         .pipe(postcss([cssnano()]))
+//         .pipe(gulp.dest(paths.styles.dest));
+// }
+
+
 function cssBuild() {
   return gulp
-        .src(paths.styles.compiled)
+        .src(paths.styles.src)
+        .pipe(sass())
         .pipe(postcss([cssnano()]))
         .pipe(gulp.dest(paths.styles.dest));
 }
@@ -100,7 +113,7 @@ function style() {
             .on("error", sass.logError)
             .pipe(postcss([autoprefixer(), cssnano()]))
             .pipe(sourcemaps.write())// Now add/write the sourcemaps)		 
-            .pipe(gulp.dest(paths.styles.compiled))  // What is the destation for the compiled file?
+            .pipe(gulp.dest(paths.styles.compileTo))  // What is the destation for the compiled file?
             .pipe(browserSync.stream()) //must follow compilation
     );
 }
