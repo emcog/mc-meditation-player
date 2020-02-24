@@ -1,3 +1,8 @@
+// gulp build to make deployment ready code
+// gulp watch for buidling/testing/debugging
+
+
+// -------> soures
 // https://www.goede.site/setting-up-gulp-4-for-automatic-sass-compilation-and-css-injection
 
 const gulp = require('gulp'),
@@ -27,7 +32,7 @@ const paths = {
         },
         styles: {
 		      src: "./src/assets/**/*.scss",
-          compiled: "./src/assets/css",
+          compiled: "./src/assets",
 		      dest: "./dist/css"
 	     },
         scripts: {
@@ -82,6 +87,8 @@ function htmlBuild() {
 
 
 
+
+
 //  --------> Production
 
 function style() {
@@ -106,7 +113,6 @@ function reload(done) {
   }
 
 
-
 function watch() {
 	style();
 	browserSync.init({
@@ -116,18 +122,9 @@ function watch() {
     });
     gulp.watch(paths.styles.src, style);
     gulp.watch(paths.scripts.src, reload);
-    gulp.watch("./index.html", reload);
-    // gulp.watch("./app/js/**/*.js", reload);
+    gulp.watch(paths.html.src, reload);
 }	
  
-
-
-
-
-
-
-
-
 
 
 
@@ -135,6 +132,6 @@ function watch() {
 	
 exports.style = style;
 exports.watch = watch;
-// exports.build = gulp.series(cleanup, gulp.parallel(javascriptBuild, htmlBuild, cssBuild));
-exports.build = gulp.series(cleanup, gulp.parallel(javascriptBuild,));
+exports.build = gulp.series(cleanup, gulp.parallel(javascriptBuild, htmlBuild, cssBuild));
+// exports.build = gulp.series(cleanup, gulp.parallel(javascriptBuild,));
 // exports.build = javascriptBuild;
