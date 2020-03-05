@@ -7,12 +7,7 @@
 	<link rel="stylesheet" href="https://use.typekit.net/edm6svv.css">
 	<link rel="stylesheet" href="assets/styles/main.css">
 	<!-- Include amplitude.js -->
-	<script src="assets/scripts/amplitude.min.js"></script>
-	<!-- <script type="application/javascript" src="https://cdn.jsdelivr.net/npm/amplitudejs@v5.0.3/dist/amplitude.js"></script> -->
-	<!-- <script src="https://cdn.jsdelivr.net/npm/amplitudejs@v5.0.3/dist/amplitude.js"></script> -->
-	<script type="javascript" src="assets/scripts/main.js"></script>
-
-
+	<script src="https://cdn.jsdelivr.net/npm/amplitudejs@v5.0.3/dist/amplitude.js"></script>
 </head>
 <body>
 
@@ -37,7 +32,18 @@
   				<span amplitude-song-info="artist" amplitude-main-song-info="true"></span>
 			</div>
 
+			<!-- WIP -->
+
+			<!-- Original & working -->
+			<!-- <progress class="amplitude-song-played-progress" amplitude-main-song-played-progress="true" id="song-played-progress"></progress> -->
+
+			<!-- WIP & broken layout -->
+
+			<div id = "progress-container">
+			<input type="range" class="amplitude-song-slider"/>
 			<progress class="amplitude-song-played-progress" amplitude-main-song-played-progress="true" id="song-played-progress"></progress>
+			<progress id="song-buffered-progress" class="amplitude-buffered-progress" value="0"></progress>
+			</div>
 
 			<div class="time-container">
   				<span class="current-time">
@@ -62,91 +68,32 @@
 				<tr><th>Meditation number</th><th>Meditation name</th><th>Meditation lenghth</th></tr>
 			</thead>
 			<tbody>
-				<tr><td class="audio-track__number">01</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="0"></td><td class="audio-track__length">02:13</td></tr>
-				<tr><td class="audio-track__number">02</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="1"></td><td class="audio-track__length">10:21</td></tr>
-				<tr><td class="audio-track__number">03</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="2"></td><td class="audio-track__length">08:05</td></tr>
-				<tr><td class="audio-track__number">04</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="3"></td><td class="audio-track__length">11:12</td></tr>
-				<tr><td class="audio-track__number">05</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="4"></td><td class="audio-track__length">09:57</td></tr>
-				<tr><td class="audio-track__number">06</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="5"></td><td class="audio-track__length">15:27</td></tr>
+				<tr class="track">
+					<td class="audio-track__number">01</td><td class="audio-track__name js__track_is-active" data-amplitude-song-info="name" data-amplitude-song-index="0"></td><td class="audio-track__length">02:13</td>
+				</tr>
+				<tr class="track">
+					<td class="audio-track__number">02</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="1"></td><td class="audio-track__length">10:21</td>
+				</tr>
+				<tr class="track">
+					<td class="audio-track__number">03</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="2"></td><td class="audio-track__length">08:05</td>
+				</tr>
+				<tr class="track">
+					<td class="audio-track__number">04</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="3"></td><td class="audio-track__length">11:12</td>
+				</tr>
+				<tr class="track">
+					<td class="audio-track__number">05</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="4"></td><td class="audio-track__length">09:57</td>
+				</tr>
+				<tr class="track">
+					<td class="audio-track__number">06</td><td class="audio-track__name" data-amplitude-song-info="name" data-amplitude-song-index="5"></td><td class="audio-track__length">15:27</td>
+				</tr>
 			</tbody>
 			<tfoot></tfoot>
 		</table>
 	</div>
-	<div id="download" class="grid-14-col">
+<!-- 	<div id="download" class="grid-14-col">
 		<a class="btn" href="/assets/meditations/MBOE-meditations.zip" download="MBOE Meditations">Download MBOE Meditations<img src="/assets/vectors/icon-download.svg"></href>
-	</div>
+	</div> -->
 
-<!-- Load the tracks & interactions -->
-<!-- <script type="javascript" src="assets/scripts/main.js"></script> -->
-
-
-<!-- <script type="text/javascript">
-
-
-	Amplitude.init({
-		"songs": [
-		{
-			"name": "Three-step reset",
-			"artist": "Mark Leonard",
-			"album": "MBOE Meditations",
-			"url": "/assets/meditations/three-step-reset.mp3"
-		},
-		{
-			"name": "Bodyscan",
-			"artist": "Mark Leonard",
-			"album": "MBOE Meditations",
-			"url": "/assets/meditations/bodyscan.mp3"
-		},
-		{
-			"name": "Posture and breath",
-			"artist": "Mark Leonard",
-			"album": "MBOE Meditations",
-			"url": "/assets/meditations/posture-and-breath.mp3"
-		},
-		{
-			"name": "Stretching and sitting",
-			"artist": "Mark Leonard",
-			"album": "MBOE Meditations",
-			"url": "/assets/meditations/stretching-and-sitting.mp3"
-		},
-		{
-			"name": "Mindfulness of feelings",
-			"artist": "Mark Leonard",
-			"album": "MBOE",
-			"url": "/assets/meditations/mindfulness-of-feelings.mp3"
-		},
-		{
-			"name": "Concentration and allowing the mind to wander",
-			"artist": "Mark Leonard",
-			"album": "MBOE",
-			"url": "/assets/meditations/concentration-and-allowing-the-mind-to-wander.mp3"
-		}
-	],
-
-	continue_next: false,
-	debug: true
-
-	});
-	
-	// clickable slider
-	document.getElementById('song-played-progress').addEventListener('click', function(e){
-		let offset = this.getBoundingClientRect();
-		let x = e.pageX - offset.left;
-
-		Amplitude.setSongPlayedPercentage((parseFloat(x)/parseFloat(this.offsetWidth))*100);
-	})
-
-	const tracks = document.querySelectorAll('.audio-track__name');
-
-	tracks.forEach(track => track.addEventListener('mousedown', playTrack));
-	// tracks.forEach(tav => tab.addEventListener('touchstart', playTrack));
-
-	function playTrack() {
-		console.log(this.dataset.amplitudeSongIndex);
-		Amplitude.playSongAtIndex(this.dataset.amplitudeSongIndex);
-	}
-
-</script> -->
-
+<script type="text/javascript" src="assets/scripts/main.js"></script>
 </body>
 </html>

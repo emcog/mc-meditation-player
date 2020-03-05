@@ -37,7 +37,7 @@ a {
 	font-weight: var(--light);
 	font-size: 20px;
 	color: white;
-	background-color: var(--color-primary__tint-light);
+	background-color: #00a8921c;
 }
 
 nav {
@@ -106,16 +106,18 @@ h1 {
 #audio-player {
 	width: 100%;
 	/*height: 259px;*/
-	background-color: var(--color-primary__tint-light);
+	background-color: #00a8921c;
 	/*justify-content: center;*/
 }
 
 .control-container,
 .time-container,
 .meta-container,
+#progress-container,
 progress
+
  {
-	grid-column: 5/11;
+	grid-column: 4/12;
 	justify-self: center;
 	font-family: var(--font-sans-stack);
 	color: black;
@@ -129,7 +131,7 @@ progress
 
 progress {
 	width: 100%;
-	height: 10px;
+	height: 50px;
 	cursor: pointer;
 }
 
@@ -388,8 +390,14 @@ audio {
 	.control-container,
 	.time-container,
 	.meta-container,
+	#progress-container,
 	progress
  		{
 			grid-column: 2/-2;
 	}
 }
+
+
+
+
+

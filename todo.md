@@ -5,8 +5,14 @@
 [x] Put js into module / main.js
 [x] get styles working
 	– had to fix paths in gulpfile.js
-[ ] Mime type error on amplitude.js
-[ ] for each loop to add/remove js_is-playing
+[x] Mime type error on amplitude.js
+[x] for each loop to add/remove js_is-playing
 [ ] click on track & auto play & play/pause button shows correct appearance
+[ ] increase size of track slider on mobile
 [ ] download individual tracks
-[ ] apple & spotify buttons
+[x] dns managment
+		– move back to namecheap
+		- point to netlify
+		- point to aws
+
+[ ] minify images & vectors and out put to dest directory

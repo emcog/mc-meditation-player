@@ -28,6 +28,7 @@
 @import
   'components/player',
   'components/tracks',
+  'components/js',
   'components/original';
 
 // 6. Page-specific styles
@@ -37,3 +38,20 @@
 // 7. Themes
 @import
   'themes/default';
+
+
+// all below are ripped from amplitude example
+
+@import 'components/player';
+@import 'components/player-left';
+@import 'components/player-right';
+@import 'components/progress';
+@import 'components/controls';
+@import 'components/volume-slider';
+@import 'components/time-container';
+@import 'components/meta-container';
+
+/*
+  3. Layout
+*/
+@import 'layout/body';

@@ -1,7 +1,6 @@
 // gulp watch for buidling/testing/debugging
-// run gulp watch before gulp build – gulp watch compiless scss to css, gulp build minifies css and pipes to dist folder
-// gulp build to make deployment ready code
-
+// gulp build to make distribution ready code
+// gulp testBuild to run browserync server from dist directory
 
 
 
@@ -28,36 +27,33 @@ const gulp = require('gulp'),
 
 
 const paths = {
-        dest: "./dist",
-        html: {
-          src: "./src/*.html",
-          dest: "./dist"
-        },
-        styles: {
-		      src: "./src/assets/**/*.scss",
-          compileTo: "./src/assets/styles/",
-          minifyFrom: "./src/assets/styles/main.css",
-          dest: "./dist/assets"
-	     },
-        scripts: {
-          src: "./src/assets/**/*.js",
-          main: "./src/assets/scripts/main.js", 
-          dest: "./dist/assets/scripts"
-       }
+        source: "./src",
+        build: "./dist",
 };
+
+
 
 
 // --------> Build
 
+function serveBuild() {
+  browserSync.init({
+    server: {
+            baseDir: "./dist",
+        }
+    });
+} 
+
+
 function cleanup() {
-    return del([paths.dest]);
+    return del([paths.build]);
 }
 
 
 
 function javascriptBuild() {
   return browserify({
-    entries: [paths.scripts.main],
+    entries: [`${paths.source}/assets/scripts/main.js`,],
     debug: true,
     transform: [
       babelify.configure({
@@ -69,35 +65,27 @@ function javascriptBuild() {
     .pipe(source("main.js"))
     .pipe(buffer())
     .pipe(uglify())
-    .pipe(gulp.dest(paths.scripts.dest));
+    .pipe(gulp.dest(`${paths.build}/assets/scripts`));
 }
 
-
-// function cssBuild() {
-//   return gulp
-//         .src(paths.styles.minifyFrom)
-//         .pipe(postcss([cssnano()]))
-//         .pipe(gulp.dest(paths.styles.dest));
-// }
 
 
 function cssBuild() {
   return gulp
-        .src(paths.styles.src)
+        .src(`${paths.source}/assets/styles/main.css`)
         .pipe(sass())
         .pipe(postcss([cssnano()]))
-        .pipe(gulp.dest(paths.styles.dest));
+        .pipe(gulp.dest(`${paths.build}/assets/styles`));
 }
 
 
   
 function htmlBuild() {
     return gulp 
-        .src(paths.html.src)
+        .src(`${paths.source}/*.html`)
         .pipe(htmlmin())
-        .pipe(gulp.dest(paths.html.dest))
+        .pipe(gulp.dest(paths.build))
 }
-
 
 
 
@@ -107,13 +95,13 @@ function htmlBuild() {
 function style() {
     return (
         gulp
-            .src(paths.styles.src)	
+            .src(`${paths.source}/assets/styles/*.scss`)
             .pipe(sourcemaps.init()) // Initialize sourcemaps before compilation starts
             .pipe(sass()) // Use sass with the files found, and log any errors
             .on("error", sass.logError)
-            .pipe(postcss([autoprefixer(), cssnano()]))
+            .pipe(postcss([autoprefixer()]))
             .pipe(sourcemaps.write())// Now add/write the sourcemaps)		 
-            .pipe(gulp.dest(paths.styles.compileTo))  // What is the destation for the compiled file?
+            .pipe(gulp.dest(`${paths.source}/assets/styles`))  // What is the destation for the compiled file?
             .pipe(browserSync.stream()) //must follow compilation
     );
 }
@@ -133,18 +121,13 @@ function watch() {
             baseDir: "./src",
         }
     });
-    gulp.watch(paths.styles.src, style);
-    gulp.watch(paths.scripts.src, reload);
-    gulp.watch(paths.html.src, reload);
+    gulp.watch(`${paths.source}/assets/**/*.scss`, style);
+    gulp.watch(`${paths.source}/assets/**/*.js`, reload);
+    gulp.watch(`${paths.source}/*.html`, reload);
 }	
- 
-
-
-
-
+  
 	
 exports.style = style;
 exports.watch = watch;
-exports.build = gulp.series(cleanup, gulp.parallel(javascriptBuild, htmlBuild, cssBuild));
-// exports.build = gulp.series(cleanup, gulp.parallel(javascriptBuild,));
-// exports.build = javascriptBuild;
+exports.build = gulp.series(cleanup, style, gulp.parallel(javascriptBuild, htmlBuild, cssBuild));
+exports.serveBuild = serveBuild;
