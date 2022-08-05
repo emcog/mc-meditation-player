@@ -1,44 +1,43 @@
 {
-  "name": "mindfulness-connected__meditation-player",
-  "version": "1.0.0",
-  "description": "An audio player for mindfulness connected",
-  "main": "gulpfile.js",
-  "scripts": {
-    "test": "gulp watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/emcog/meditations-mindfulnessconnected.git"
-  },
-  "author": "Robin Leonard",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/emcog/meditations-mindfulnessconnected/issues"
-  },
-  "homepage": "https://github.com/emcog/meditations-mindfulnessconnected#readme",
-  "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "autoprefixer": "^9.7.4",
-    "babelify": "^10.0.0",
-    "browser-sync": "^2.26.7",
-    "browserify": "^16.5.0",
-    "commander": "^4.1.1",
-    "cssnano": "^4.1.10",
-    "del": "^5.1.0",
-    "gulp": "^4.0.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-postcss": "^8.0.0",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
-  },
-  "dependencies": {
-    "amplitudejs": "^5.0.3"
-  }
+	"name": "sveltestarter",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"package": "svelte-kit package",
+		"preview": "vite preview",
+		"test": "playwright test",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
+		"format": "prettier --write --plugin-search-dir=. ."
+	},
+	"devDependencies": {
+		"@playwright/test": "^1.22.2",
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/adapter-static": "^1.0.0-next.38",
+		"@sveltejs/kit": "next",
+		"@types/cookie": "^0.5.1",
+		"@typescript-eslint/eslint-plugin": "^5.27.0",
+		"@typescript-eslint/parser": "^5.27.0",
+		"autoprefixer": "^10.4.8",
+		"eslint": "^8.16.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-svelte3": "^4.0.0",
+		"postcss": "^8.4.14",
+		"prettier": "^2.6.2",
+		"prettier-plugin-svelte": "^2.7.0",
+		"svelte": "^3.46.0",
+		"svelte-check": "^2.7.1",
+		"svelte-preprocess": "^4.10.6",
+		"tailwindcss": "^3.1.7",
+		"tslib": "^2.3.1",
+		"typescript": "^4.7.4",
+		"vite": "^3.0.0"
+	},
+	"type": "module",
+	"dependencies": {
+		"@fontsource/fira-mono": "^4.5.0",
+		"cookie": "^0.4.1"
+	}
 }
