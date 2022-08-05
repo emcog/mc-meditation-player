@@ -1,0 +1,59 @@
+{
+  "src/lib/header/mindfulness-connected-logo_t.svg": {
+    "file": "_app/immutable/assets/mindfulness-connected-logo_t-41df87ca.svg",
+    "src": "src/lib/header/mindfulness-connected-logo_t.svg"
+  },
+  ".svelte-kit/runtime/client/start.js": {
+    "file": "_app/immutable/start-95076278.js",
+    "src": ".svelte-kit/runtime/client/start.js",
+    "isEntry": true,
+    "imports": [
+      "_index-c34dd932.js"
+    ],
+    "dynamicImports": [
+      "src/routes/__layout.svelte",
+      ".svelte-kit/runtime/components/error.svelte",
+      "src/routes/index.svelte"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "_app/immutable/pages/__layout.svelte-1d92811c.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-c34dd932.js"
+    ],
+    "css": [
+      "_app/immutable/assets/__layout-b81b1eeb.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/mindfulness-connected-logo_t-41df87ca.svg"
+    ]
+  },
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "_app/immutable/error.svelte-72515fe7.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-c34dd932.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "_app/immutable/pages/index.svelte-f67ea3d7.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-c34dd932.js"
+    ]
+  },
+  "_index-c34dd932.js": {
+    "file": "_app/immutable/chunks/index-c34dd932.js"
+  },
+  "src/routes/__layout.css": {
+    "file": "_app/immutable/assets/__layout-b81b1eeb.css",
+    "src": "src/routes/__layout.css"
+  }
+}

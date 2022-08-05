@@ -30,7 +30,7 @@ export const TERM_PROGRAM_VERSION = "440";
 export const COLOR = "1";
 
 /** @type {import('$env/static/private').TERM_SESSION_ID} */
-export const TERM_SESSION_ID = "F0AF53D1-DD7C-4FEB-88E2-F0D941D93F51";
+export const TERM_SESSION_ID = "A47DFB24-80AA-4C3D-8192-FCF8B60633E7";
 
 /** @type {import('$env/static/private').npm_config_noproxy} */
 export const npm_config_noproxy = "";
@@ -90,7 +90,7 @@ export const npm_command = "run-script";
 export const PWD = "/Users/robin/Sites/mc-meditation-player";
 
 /** @type {import('$env/static/private').npm_lifecycle_event} */
-export const npm_lifecycle_event = "dev";
+export const npm_lifecycle_event = "build";
 
 /** @type {import('$env/static/private').EDITOR} */
 export const EDITOR = "vi";
@@ -129,7 +129,7 @@ export const LESS = "-R";
 export const LOGNAME = "robin";
 
 /** @type {import('$env/static/private').npm_lifecycle_script} */
-export const npm_lifecycle_script = "vite dev \"--open\"";
+export const npm_lifecycle_script = "vite build";
 
 /** @type {import('$env/static/private').npm_config_user_agent} */
 export const npm_config_user_agent = "npm/8.1.0 node/v16.13.0 darwin x64 workspaces/false";
@@ -142,3 +142,6 @@ export const npm_node_execpath = "/usr/local/bin/node";
 
 /** @type {import('$env/static/private').npm_config_prefix} */
 export const npm_config_prefix = "/usr/local";
+
+/** @type {import('$env/static/private').NODE_ENV} */
+export const NODE_ENV = "production";
